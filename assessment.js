@@ -6,8 +6,8 @@ After writing your function uncomment the matching function reference at the bot
 
 // 1. Write a function called helloWorld that returns the string 'Hello World!'.
 
-function helloWorld() {
-
+function helloWorld(){
+  return("Hello World!");
 }
 
 /*
@@ -23,7 +23,16 @@ function helloWorld() {
              lambdaSchool(8); // returns 8
 */
 
-function lambdaSchool() {
+function lambdaSchool(num) {
+  if ((num % 3 == 0) && (num % 5 == 0)){
+    return("Lambda School");
+  } else if (num % 3 == 0) {
+    return("Lambda");
+  } else if (num % 5 == 0) {
+    return("School");
+  } else {
+    return(num);
+  }
 
 }
 
@@ -35,12 +44,21 @@ function lambdaSchool() {
 
      Example:
              longestString(['hi', 'hello', 'ni hao', 'guten tag']); // returns 'guten tag'
-             longestString(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
-*/
-
-function longestString() {
-
+//              longestString(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
+// */
+// longestString(['hi', 'hello', 'ni hao', 'guten tag']);
+function longestString(strs) {
+  var longestLength = 0;
+  var longestWord;
+  for (var i = 0; i < strs.length; i++){
+    if (longestLength < strs[i].length){
+      longestLength = strs[i].length;
+      longestWord = strs[i];
+    }
+  }
+  return longestWord;
 }
+
 
 /*
 4. Write a function called computeUserAverageAge that has a single parameter called users
@@ -62,9 +80,19 @@ function longestString() {
              }];
              computeUserAverageAge(users); // returns 62 (This number is rounded up from 61.6666)
 */
+// computeUserAverageAge([{name: 'Brendan Eich', age: 56,}, {name: 'Linus Torvalds', age: 48,}, {name: 'Margaret Hamilton', age: 81}])
 
-function computeUserAverageAge() {
-
+function computeUserAverageAge(user) {
+  // const users = [{name: 'Brendan Eich', age: 56,}, {name: 'Linus Torvalds', age: 48,}, {name: 'Margaret Hamilton', age: 81}];
+  // console.log(users[0].age)
+  // var dict1 = users[0]
+  // console.log(dict1["name"]);
+  var ageSum = 0;
+  for(var i=0; i<user.length; i++) {
+    ageSum += (user[i].age);
+  }
+  // console.log(Math.ceil(ageSum / user.length));
+  return (Math.ceil(ageSum / user.length))
 }
 
 module.exports = {
